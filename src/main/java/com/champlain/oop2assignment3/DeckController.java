@@ -123,8 +123,8 @@ public class DeckController {
                     this.aScoreLabel.setText("Simple count...");
                     break;
                 case "Number Of Aces":
-                    // TODO: Replace the following line of code.
-                    this.aScoreLabel.setText("Number of aces...");
+                    int aceCount = this.aHand.countAces();
+                    this.aScoreLabel.setText("Number of Aces: " + aceCount);
                     break;
                 default:
                     this.aScoreLabel.setText("This should not happen! You messed up.");
