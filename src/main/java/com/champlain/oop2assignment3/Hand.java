@@ -43,4 +43,15 @@ public class Hand extends CardCollection {
     public Iterator<Card> iterator() {
         return this.aCards.iterator();
     }
+
+    // New method to count the number of Aces in the hand.
+    public int countAces() {
+        int aceCount = 0;
+        for (Card card : aCards) {
+            if (card.getRank() == Rank.ACE) {
+                aceCount++;
+            }
+        }
+        return aceCount;
+    }
 }
