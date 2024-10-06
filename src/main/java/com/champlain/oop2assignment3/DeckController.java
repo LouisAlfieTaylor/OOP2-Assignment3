@@ -46,9 +46,11 @@ public class DeckController {
     private Label aScoreLabel;
 
     /**
-     * The deck of cards being managed by this controller.
+     *This line uses the Singleton instance
      */
-    private final Deck aDeck = new Deck();
+    private final Deck aDeck = Deck.getInstance(); // This line uses the Singleton instance
+
+
 
     /**
      * The hand of cards being managed by this controller.
