@@ -90,7 +90,8 @@ public class DeckController {
             switch (choice) {
                 case "Rank First":
                     // TODO: Replace the following line of code.
-                    this.aDeckTextArea.setText("This does not sort by rank first yet.");
+                    this.aDeck.sort();
+                    this.displayCardCollections();
                     break;
                 case "Suit First":
                     // TODO: Replace the following line of code.
@@ -119,6 +120,17 @@ public class DeckController {
                 case "Simple Count":
                     // TODO: Replace the following line of code.
                     this.aScoreLabel.setText("Simple count...");
+                    if (this.aDeck.isEmpty()) {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Error");
+                        alert.setHeaderText(null);
+                        alert.setContentText("No Deck");
+                        alert.showAndWait();
+                        return;
+                    }
+
+                    this.aDeck.sort();
+
                     break;
                 case "Number Of Aces":
                     // TODO: Replace the following line of code.

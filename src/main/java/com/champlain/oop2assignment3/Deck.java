@@ -1,5 +1,7 @@
 package com.champlain.oop2assignment3;
 
+import javafx.scene.control.Alert;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -37,6 +39,18 @@ public class Deck extends CardCollection implements CardSource {
         Collections.shuffle(this.aCards);
     }
 
+    public void sort() {
+        if (this.aCards.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("No Cards in Deck");
+            alert.showAndWait();
+        } else {
+            Collections.sort(this.aCards);
+        }
+    }
+
     public Card draw() {
         int last = this.aCards.size()-1;
         Card myCard = this.aCards.get(last);
@@ -51,9 +65,10 @@ public class Deck extends CardCollection implements CardSource {
     /**
      * Returns an iterator over the cards in this deck.
      *
-     * @return an iterator for the cards
+     * @return an iterator for the cardszzzzzs
      */
     public Iterator<Card> iterator() {
         return this.aCards.iterator();
     }
+
 }

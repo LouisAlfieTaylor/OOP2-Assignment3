@@ -4,7 +4,7 @@ package com.champlain.oop2assignment3;
  * Represents a playing card with a specific suit and rank.
  * @implNote This class is immutable, meaning that once a card is created, its suit and rank cannot be changed.
  */
-public class Card {
+public class Card implements Comparable<Card> {
     /**
      * The suit of this card (e.g., Hearts, Diamonds, Clubs, Spades).
      */
@@ -52,5 +52,16 @@ public class Card {
     @Override
     public String toString() {
         return this.getRank() + " of " + this.getSuit();
+    }
+    @Override
+    public int compareTo(Card other) {
+
+        // Compare by Rank first
+        int suitCompare = this.aRank.compareTo(other.aRank);
+        if (suitCompare != 0) {
+            return suitCompare;
+        }
+        // If the Rank is the same, compare by suits
+        return this.aSuit.compareTo(other.aSuit);
     }
 }
