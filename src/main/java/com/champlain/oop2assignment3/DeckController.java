@@ -91,15 +91,12 @@ public class DeckController {
         } else {
             switch (choice) {
                 case "Rank First":
-                    // TODO: Replace the following line of code.
-                    this.aDeckTextArea.setText("This does not sort by rank first yet.");
+                    this.aDeck.sort(SortOption.RANK_FIRST);  // Sort by rank first
+                    this.displayCardCollections();
                     break;
                 case "Suit First":
-                    // TODO: Replace the following line of code.
-                    this.aDeckTextArea.setText("This does not sort by suit first yet.");
-                    break;
-                default:
-                    this.aDeckTextArea.setText("This should not happen! You messed up.");
+                    this.aDeck.sort(SortOption.SUIT_FIRST);  // Sort by suit first
+                    this.displayCardCollections();
                     break;
             }
         }
@@ -121,6 +118,17 @@ public class DeckController {
                 case "Simple Count":
                     // TODO: Replace the following line of code.
                     this.aScoreLabel.setText("Simple count...");
+                    if (this.aDeck.isEmpty()) {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Error");
+                        alert.setHeaderText(null);
+                        alert.setContentText("No Deck");
+                        alert.showAndWait();
+                        return;
+                    }
+
+                    this.aDeck.sort(SortOption.RANK_FIRST);
+
                     break;
                 case "Number Of Aces":
                     int aceCount = this.aHand.countAces();
