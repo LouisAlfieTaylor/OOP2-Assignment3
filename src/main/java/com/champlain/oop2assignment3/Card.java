@@ -64,4 +64,19 @@ public class Card implements Comparable<Card> {
         // If the Rank is the same, compare by suits
         return this.aSuit.compareTo(other.aSuit);
     }
+    /**
+     * Compares two cards based on their suit first, then by rank if suits are equal.
+     *
+     * @param other the other card to compare to
+     * @return a negative integer, zero, or a positive integer as this card is less than, equal to, or greater than the specified card
+     */
+    public int compareBySuitFirst(Card other) {
+        // Compare by Suit first
+        int suitCompare = this.aSuit.compareTo(other.aSuit);
+        if (suitCompare != 0) {
+            return suitCompare;
+        }
+        // If the Suit is the same, compare by ranks
+        return this.aRank.compareTo(other.aRank);
+    }
 }

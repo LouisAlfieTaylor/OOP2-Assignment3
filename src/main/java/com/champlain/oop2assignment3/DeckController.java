@@ -89,16 +89,12 @@ public class DeckController {
         } else {
             switch (choice) {
                 case "Rank First":
-                    // TODO: Replace the following line of code.
-                    this.aDeck.sort();
+                    this.aDeck.sort(SortOption.RANK_FIRST);  // Sort by rank first
                     this.displayCardCollections();
                     break;
                 case "Suit First":
-                    // TODO: Replace the following line of code.
-                    this.aDeckTextArea.setText("This does not sort by suit first yet.");
-                    break;
-                default:
-                    this.aDeckTextArea.setText("This should not happen! You messed up.");
+                    this.aDeck.sort(SortOption.SUIT_FIRST);  // Sort by suit first
+                    this.displayCardCollections();
                     break;
             }
         }
@@ -129,7 +125,7 @@ public class DeckController {
                         return;
                     }
 
-                    this.aDeck.sort();
+                    this.aDeck.sort(SortOption.RANK_FIRST);
 
                     break;
                 case "Number Of Aces":

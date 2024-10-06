@@ -39,7 +39,7 @@ public class Deck extends CardCollection implements CardSource {
         Collections.shuffle(this.aCards);
     }
 
-    public void sort() {
+    public void sort(SortOption option) {
         if (this.aCards.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
@@ -47,9 +47,20 @@ public class Deck extends CardCollection implements CardSource {
             alert.setContentText("No Cards in Deck");
             alert.showAndWait();
         } else {
-            Collections.sort(this.aCards);
+            switch (option) {
+                case SUIT_FIRST:
+                    // Sort by suit first
+                    Collections.sort(this.aCards, Card::compareBySuitFirst);
+                    break;
+                case RANK_FIRST:
+                default:
+                    // Sort by rank first (default)
+                    Collections.sort(this.aCards);
+                    break;
+            }
         }
     }
+
 
     public Card draw() {
         int last = this.aCards.size()-1;
